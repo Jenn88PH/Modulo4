@@ -1,13 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ carrito }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-blue">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
       <div className="container">
         <Link className="navbar-brand" to="/">
           Apple Shop
         </Link>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
         <div className="collapse navbar-collapse">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
@@ -17,7 +28,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/carrito">
-                Carrito ()
+                Carrito ({carrito.length})
               </Link>
             </li>
           </ul>
