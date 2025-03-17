@@ -16,11 +16,13 @@ const HomePage = () => {
   return (
     <div className="row">
       {productos.length === 0 ? (
-        <p>Cargando Productos...</p>
+        <div className="col-12 text-center">
+          <p className="alert alert-info">Cargando Productos...</p>
+        </div>
       ) : (
         productos.map((producto, index) => (
           <div key={index} className="col-md-4 mb-4">
-            <div className="card h-100">
+            <div className="card shadow-sm h-100">
               <img
                 src={producto.imagen}
                 className="card-img-top"
@@ -32,7 +34,7 @@ const HomePage = () => {
                 <p className="card-text">
                   <strong>Precio:</strong> ${producto.precio}
                 </p>
-                <Link to={`/producto/${index}`} className="btn btn-primary">
+                <Link to={`/producto/${index}`} className="btn btn-info">
                   Ver Detalles
                 </Link>
               </div>

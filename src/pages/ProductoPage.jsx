@@ -14,6 +14,7 @@ const ProductoPage = ({ dispatch }) => {
         className="card-img-top"
         alt={producto.nombre}
       />
+
       <div className="card-body">
         <h5 className="card-title">{producto.nombre}</h5>
         <p className="card-text">{producto.descripcion}</p>
@@ -29,7 +30,7 @@ const ProductoPage = ({ dispatch }) => {
         <button
           className="btn btn-success"
           onClick={() =>
-            dispatch({ type: 'AGREGAR', producto: { ...producto, cantidad } })
+            dispatch({ type: 'Agregar', producto: { ...producto, cantidad } })
           }
         >
           Agregar al Carrito

@@ -16,7 +16,7 @@ function App() {
       <Navbar carrito={carrito} />
       <div className="container mt-4">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage dispatch={dispatch} />} />
           <Route
             path="/producto/:id"
             element={<ProductoPage dispatch={dispatch} />}
