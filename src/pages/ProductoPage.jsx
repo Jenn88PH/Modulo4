@@ -8,10 +8,10 @@ const ProductoPage = ({ dispatch }) => {
   const [cantidad, setCantidad] = useState(1);
 
   return (
-    <div className="card">
+    <div className="card" style={{ width: '18rem' }}>
       <img
         src={producto.imagen}
-        className="card-img-top"
+        className="card-img-top img-"
         alt={producto.nombre}
       />
 
