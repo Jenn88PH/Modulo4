@@ -1,33 +1,27 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './component/Navbar';
+import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
-import ProductoPage from './pages/ProductoPage';
-import CarritoPage from './pages/CarritoPage';
+import ProductPage from './pages/ProductPage';
+import CartPage from './pages/CartPage';
 
-import { useCarrito } from './hook/useReducer';
+import { CartProvider } from './hook/useCartContext';
 
 function App() {
-  const { carrito, dispatch } = useCarrito();
-
   return (
-    <Router>
-      <Navbar carrito={carrito} />
-      <div className="container mt-4">
-        <Routes>
-          <Route path="/" element={<HomePage dispatch={dispatch} />} />
-          <Route
-            path="/producto/:id"
-            element={<ProductoPage dispatch={dispatch} />}
-          />
-          <Route
-            path="/carrito"
-            element={<CarritoPage carrito={carrito} dispatch={dispatch} />}
-          />
-        </Routes>
-      </div>
-    </Router>
+    <CartProvider>
+      <Router>
+        <Navbar />
+        <div className="container mt-4">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/product/:id" element={<ProductPage />} />
+            <Route path="/cart" element={<CartPage />} />
+          </Routes>
+        </div>
+      </Router>
+    </CartProvider>
   );
 }
 

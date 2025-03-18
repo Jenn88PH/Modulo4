@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useCartContext } from '../hook/useCartContext';
 
-const Navbar = ({ carrito }) => {
+const Navbar = () => {
+  const { cart } = useCartContext();
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-secondary">
       <div className="container">
@@ -23,12 +25,12 @@ const Navbar = ({ carrito }) => {
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <Link className="nav-link" to="/">
-                Inicio
+                Home
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/carrito">
-                Carrito ({carrito.length})
+              <Link className="nav-link" to="/cart">
+                Cart ({cart.reduce((acc, item) => acc + item.quantity, 0)})
               </Link>
             </li>
           </ul>
